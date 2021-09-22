@@ -1,5 +1,32 @@
 const mongoose = require("mongoose");
 
+const lecturesSchema = new mongoose.Schema({
+	title: {
+		type: String,
+		required: true,
+	},
+	description: {
+		type: String,
+	},
+	videoUrl: {
+		type: String,
+	},
+});
+
+const questionSchema = new mongoose.Schema({
+	question: {
+		type: String,
+	},
+	options: [
+		{
+			type: String,
+		},
+	],
+	correctOption: {
+		type: Number,
+	},
+});
+
 module.exports = mongoose.model(
 	"Module",
 	new mongoose.Schema({
@@ -14,36 +41,13 @@ module.exports = mongoose.model(
 			type: Number,
 			required: true,
 		},
-		lectures: [
-			{
-				title: {
-					type: String,
-					required: true,
-				},
-				description: {
-					type: String,
-				},
-				videoUrl: {
-					type: String,
-				},
-			},
-		],
+		lectures: {
+			type: [lecturesSchema],
+		},
 		quiz: {
-			questions: [
-				{
-					question: {
-						type: String,
-					},
-					options: [
-						{
-							type: String,
-						},
-					],
-                    correctOption: {
-                        type: String
-                    }
-				},
-			],
+			questions: {
+                type: [questionSchema]
+            }
 		},
 	})
 );
