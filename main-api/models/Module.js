@@ -30,6 +30,10 @@ const questionSchema = new mongoose.Schema({
 module.exports = mongoose.model(
 	"Module",
 	new mongoose.Schema({
+		index: {
+			type: Number,
+			required: true,
+		},
 		name: {
 			type: String,
 			required: true,
@@ -46,8 +50,8 @@ module.exports = mongoose.model(
 		},
 		quiz: {
 			questions: {
-                type: [questionSchema]
-            }
+				type: [questionSchema],
+			},
 		},
 	})
 );
