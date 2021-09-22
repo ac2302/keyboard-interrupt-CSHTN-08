@@ -9,6 +9,7 @@ const authOnly = require("./middlewares/authOnly");
 const authRouter = require("./routes/auth");
 const module_adminRouter = require("./routes/module-admin");
 const completeRouter = require("./routes/complete");
+const commentRouter = require("./routes/comment");
 
 const app = express();
 
@@ -25,6 +26,7 @@ mongoose.connect(process.env.DB_STRING, () => {
 app.use("/auth", authRouter);
 app.use("/module-admin", module_adminRouter);
 app.use("/complete", completeRouter);
+app.use("/comment", commentRouter);
 
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => console.log(`server live on port ${PORT}`));

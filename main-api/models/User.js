@@ -38,7 +38,6 @@ module.exports = mongoose.model(
 		},
 		isAdmin: {
 			type: Boolean,
-			default: false,
 		},
 		currentModule: {
 			type: Number,
