@@ -6,6 +6,10 @@ const commentSchema = new mongoose.Schema({
 		required: true,
 	},
 	user: {
+		isAdmin: {
+			type: Boolean,
+			default: false,
+		},
 		userId: {
 			type: mongoose.Schema.Types.ObjectId,
 			required: true,
