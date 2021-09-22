@@ -1,5 +1,15 @@
 const mongoose = require("mongoose");
 
+lecturesSchema = new mongoose.Schema({
+	id: {
+		type: mongoose.Schema.Types.ObjectId,
+	},
+	time: {
+		type: Date,
+		default: Date.now,
+	},
+});
+
 module.exports = mongoose.model(
 	"User",
 	new mongoose.Schema({
@@ -28,17 +38,8 @@ module.exports = mongoose.model(
 			default: false,
 		},
 		completedLessons: {
-			default: [
-				{
-					id: {
-						type: mongoose.Schema.Types.ObjectId,
-						completed: {
-							type: Date,
-							default: Date.now,
-						},
-					},
-				},
-			],
+			type: [lecturesSchema],
+			default: [],
 		},
 		created: {
 			type: Date,
