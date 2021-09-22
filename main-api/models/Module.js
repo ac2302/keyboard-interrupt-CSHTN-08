@@ -28,5 +28,22 @@ module.exports = mongoose.model(
 				},
 			},
 		],
+		quiz: {
+			questions: [
+				{
+					question: {
+						type: String,
+					},
+					options: [
+						{
+							type: String,
+						},
+					],
+                    correctOption: {
+                        type: String
+                    }
+				},
+			],
+		},
 	})
 );
