@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
 
 const lecturesSchema = new mongoose.Schema({
-	id: {
-		type: mongoose.Schema.Types.ObjectId,
+	module: {
+		type: Number,
+	},
+	index: {
+		type: Number,
 	},
 	time: {
 		type: Date,
@@ -37,10 +40,18 @@ module.exports = mongoose.model(
 			type: Boolean,
 			default: false,
 		},
-		completedLessons: {
-			type: [lecturesSchema],
-			default: [],
+		currentModule: {
+			type: Number,
+			default: 0,
 		},
+		lastLesson: {
+			type: Number,
+			default: -1,
+		},
+		// completedLessons: {
+		// 	type: [lecturesSchema],
+		// 	default: [],
+		// },
 		created: {
 			type: Date,
 			default: Date.now,
