@@ -41,4 +41,19 @@ router.post("/:module/:lesson", authOnlyMiddleware, async (req, res) => {
 	}
 });
 
+router.get("/:module/:lesson", async (req, res) => {
+	if (isNaN(req.params.module) || isNaN(req.params.lesson))
+		return res.status(400).send("invalid lesson or module");
+
+	const slug = `${req.params.module}-${req.params.lesson}`;
+
+	const sections = await CommentSection.find({ slug: slug });
+
+	if (sections.length != 0) {
+		return res.json(sections[0].comments);
+	} else {
+		return res.json([]);
+	}
+});
+
 module.exports = router;
