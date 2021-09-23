@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
+import RoadmapPage from "./components/RoadmapPage";
 import "./App.css";
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
 						<SignupPage setAuth={setAuth} />
 					</Route>
 					<Route path="/roadmap" exact>
-						roadmap
+						<RoadmapPage />
 					</Route>
 				</Switch>
 			</main>
