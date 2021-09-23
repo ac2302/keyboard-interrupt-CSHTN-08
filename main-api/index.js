@@ -12,6 +12,7 @@ const module_adminRouter = require("./routes/module-admin");
 const completeRouter = require("./routes/complete");
 const commentRouter = require("./routes/comment");
 const modulesRouter = require("./routes/modules");
+const userRouter = require("./routes/user");
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use("/module-admin", module_adminRouter);
 app.use("/complete", completeRouter);
 app.use("/comment", commentRouter);
 app.use("/modules", modulesRouter);
+app.use("/user", userRouter);
 
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => console.log(`server live on port ${PORT}`));
