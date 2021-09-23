@@ -40,6 +40,7 @@ function SignupPage({ setAuth }) {
 						});
 				}}
 			>
+				<h2>Sign Up</h2>
 				<div className="form-group">
 					<label htmlFor="inputFirstName">First Name</label>
 					<input

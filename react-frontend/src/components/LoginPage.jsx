@@ -34,6 +34,8 @@ function LoginPage({ setAuth }) {
 						});
 				}}
 			>
+				<h2>Log In</h2>
+
 				<div className="form-group">
 					<label htmlFor="inputUsername">Username</label>
 					<input
