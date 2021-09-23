@@ -112,8 +112,8 @@ function LoginButtons({ auth, setAuth }) {
 					type="button"
 					className="btn btn-dark"
 					onClick={() => {
-						console.log("logging out");
-						setAuth("test");
+						console.log("redirecting to login");
+						window.location = "/login";
 					}}
 				>
 					Log in

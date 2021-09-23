@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import LoginPage from "./components/LoginPage";
 import "./App.css";
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
 				<Switch>
 					<Route path="/" exact>
 						welcome {String(auth)}
+					</Route>
+					<Route path="/login" exact>
+						<LoginPage setAuth={setAuth} />
 					</Route>
 					<Route path="/roadmap" exact>
 						roadmap
