@@ -8,7 +8,7 @@ const lecturesSchema = new mongoose.Schema({
 	description: {
 		type: String,
 	},
-	videoUrl: {
+	videoName: {
 		type: String,
 	},
 });
