@@ -26,7 +26,7 @@ function LoginPage({ setAuth }) {
 						})
 						.then((res) => {
 							setAuth(res.headers["auth-token"]);
-                            window.location = "/home"
+							window.location = "/home";
 						})
 						.catch((err) => {
 							console.error(err);
@@ -34,28 +34,28 @@ function LoginPage({ setAuth }) {
 						});
 				}}
 			>
-				<div class="form-group">
-					<label for="inputUsername">Username</label>
+				<div className="form-group">
+					<label htmlFor="inputUsername">Username</label>
 					<input
 						name="username"
 						type="text"
-						class="form-control"
+						className="form-control"
 						id="inputUsername"
 						placeholder="Username"
 					/>
 				</div>
-				<div class="form-group">
-					<label for="inputPassword">Password</label>
+				<div className="form-group">
+					<label htmlFor="inputPassword">Password</label>
 					<input
 						name="password"
 						type="password"
-						class="form-control"
+						className="form-control"
 						id="inputPassword"
 						placeholder="Password"
 					/>
 				</div>
 
-				<button type="submit" class="btn btn-primary">
+				<button type="submit" className="btn btn-primary">
 					Sign in
 				</button>
 			</form>

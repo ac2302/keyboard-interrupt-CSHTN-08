@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LoginPage from "./components/LoginPage";
+import SignupPage from "./components/SignupPage";
 import "./App.css";
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
 					</Route>
 					<Route path="/login" exact>
 						<LoginPage setAuth={setAuth} />
+					</Route>
+					<Route path="/signup" exact>
+						<SignupPage setAuth={setAuth} />
 					</Route>
 					<Route path="/roadmap" exact>
 						roadmap

@@ -118,7 +118,14 @@ function LoginButtons({ auth, setAuth }) {
 				>
 					Log in
 				</button>
-				<button type="button" className="btn btn-primary">
+				<button
+					type="button"
+					className="btn btn-primary"
+					onClick={() => {
+						console.log("redirecting to login");
+						window.location = "/signup";
+					}}
+				>
 					Sign Up
 				</button>
 			</div>
