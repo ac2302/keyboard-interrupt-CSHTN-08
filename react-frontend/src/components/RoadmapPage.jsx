@@ -28,13 +28,17 @@ function RoadmapPage() {
 			<div className="expanded-container">
 				{modules.map((module) => (
 					<div key={module._id} id={module._id} className="module-card">
-						<h4>module.name</h4>
+						<h4>{module.name}</h4>
 						<hr />
 						<p>{module.description}</p>
 						<ol>
-							{module.lectures.map((lesson) => (
+							{module.lectures.map((lesson, lessonIndex) => (
 								<li>
-									<a href="#">{lesson.title}</a>
+									<a
+										href={`/watch?module=${module.index}&lesson=${lessonIndex}`}
+									>
+										{lesson.title}
+									</a>
 									<p>{lesson.description}</p>
 								</li>
 							))}

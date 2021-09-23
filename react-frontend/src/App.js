@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
 import RoadmapPage from "./components/RoadmapPage";
+import WatchPage from "./components/WatchPage";
 import "./App.css";
 
 function App() {
@@ -41,6 +42,9 @@ function App() {
 					</Route>
 					<Route path="/roadmap" exact>
 						<RoadmapPage />
+					</Route>
+					<Route path="/watch">
+						<WatchPage auth={auth} />
 					</Route>
 				</Switch>
 			</main>
