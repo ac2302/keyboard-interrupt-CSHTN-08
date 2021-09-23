@@ -1,11 +1,11 @@
 import React from "react";
-import "./Footer.css"
+import "./Footer.css";
 
 function Footer() {
 	return (
-		<footer class="footer mt-auto py-3 bg-light">
-			<div class="container">
-				<span class="text-muted">haha footer go brr...</span>
+		<footer className="footer mt-auto py-3 bg-light">
+			<div className="container">
+				<span className="text-muted">haha footer go brr...</span>
 			</div>
 		</footer>
 	);
