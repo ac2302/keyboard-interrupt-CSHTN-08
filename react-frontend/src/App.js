@@ -6,9 +6,9 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
-	const [auth, setAuth] = useState(null);
+	const [auth, setAuth] = useState("");
 	useEffect(() => {
-		const retrieved = window.localStorage.getItem("auth");
+		const retrieved = window.localStorage.getItem("token");
 		console.log({ retrieved });
 		if (retrieved) {
 			console.log("auto login");
@@ -16,18 +16,19 @@ function App() {
 		}
 	}, []);
 	useEffect(() => {
-		console.log("update auth in localstorage");
-		window.localStorage.setItem("auth", auth);
+		console.log("update auth in localstorage to");
+		console.log({ auth });
+		window.localStorage.setItem("token", auth);
 	}, [auth]);
 
 	return (
 		<Router>
-			<Navbar />
+			<Navbar auth={auth} setAuth={setAuth} />
 			<div className="main-scroller"></div>
 			<main>
 				<Switch>
 					<Route path="/" exact>
-						welcome
+						welcome {String(auth)}
 					</Route>
 					<Route path="/roadmap" exact>
 						roadmap

@@ -3,7 +3,8 @@ import { FcGlobe } from "react-icons/fc";
 
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({ auth, setAuth }) {
+	console.log("auth is ");
 	return (
 		<>
 			<nav
@@ -68,6 +69,9 @@ function Navbar() {
 								</ul>
 							</li>
 						</ul>
+
+						<LoginButtons auth={auth} setAuth={setAuth} />
+
 						<form>
 							<input
 								className="form-control"
@@ -83,13 +87,43 @@ function Navbar() {
 	);
 }
 
-function Logo() {
-	return (
-		<div className="logo-container">
-			<FcGlobe className="logo" />
-			{/* <span className="logo-text">Keyboad Interrupt</span> */}
-		</div>
-	);
+function LoginButtons({ auth, setAuth }) {
+	if (auth) {
+		console.log("buttons think loggged in " + String(auth));
+		return (
+			<div className="login-buttons">
+				<button
+					type="button"
+					className="btn btn-dark"
+					onClick={() => {
+						console.log("logging out");
+						setAuth("");
+					}}
+				>
+					Log Out
+				</button>
+			</div>
+		);
+	} else {
+		console.log("buttons think loggged out " + String(auth));
+		return (
+			<div className="login-buttons">
+				<button
+					type="button"
+					className="btn btn-dark"
+					onClick={() => {
+						console.log("logging out");
+						setAuth("test");
+					}}
+				>
+					Log in
+				</button>
+				<button type="button" className="btn btn-primary">
+					Sign Up
+				</button>
+			</div>
+		);
+	}
 }
 
 export default Navbar;
