@@ -56,7 +56,7 @@ router.get("/:module/:lesson", async (req, res) => {
 	}
 });
 
-router.post("/:module/:lesson/:id", async (req, res) => {
+router.post("/:module/:lesson/:id", authOnlyMiddleware, async (req, res) => {
 	if (isNaN(req.params.module) || isNaN(req.params.lesson || !req.params.id))
 		return res.status(400).send("invalid lesson, module or comment id");
 	if (!req.body.comment) return res.status(400).send("missing comment");
