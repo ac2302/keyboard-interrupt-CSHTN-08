@@ -118,7 +118,7 @@ function VideosList({ auth, module, lecture, modules }) {
 							<span className="title">{l.title}</span>
 							<span className="duration">
 								<AiOutlineClockCircle className="clock-icon" />
-								{l.duration} min
+								10 min
 							</span>
 						</div>
 					))}

@@ -18,6 +18,16 @@
 	color: green;
 }
 
+.videos-list .duration {
+	display: inline-block;
+	padding-left: 20px;
+}
+.videos-list .lesson {
+	display: inline-block;
+	padding: 5px;
+	font-size: 16px;
+	padding-left: 20px;
+}
 .videos-list .module {
 	display: block;
 	border: 1px solid black;
