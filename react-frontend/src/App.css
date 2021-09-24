@@ -6,3 +6,8 @@ main {
 	display: block;
 	min-height: calc(100vh - 112px);
 }
+
+#main-scroller {
+	overflow-y: scroll;
+	height: calc(100vh- 100px);
+}

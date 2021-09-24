@@ -28,27 +28,28 @@ function App() {
 	return (
 		<Router>
 			<Navbar auth={auth} setAuth={setAuth} />
-			<div className="main-scroller"></div>
-			<main>
-				<Switch>
-					<Route path="/" exact>
-						welcome {String(auth)}
-					</Route>
-					<Route path="/login" exact>
-						<LoginPage setAuth={setAuth} />
-					</Route>
-					<Route path="/signup" exact>
-						<SignupPage setAuth={setAuth} />
-					</Route>
-					<Route path="/roadmap" exact>
-						<RoadmapPage />
-					</Route>
-					<Route path="/watch">
-						<WatchPage auth={auth} />
-					</Route>
-				</Switch>
-			</main>
-			<Footer />
+			<div id="main-scroller">
+				<main>
+					<Switch>
+						<Route path="/" exact>
+							welcome {String(auth)}
+						</Route>
+						<Route path="/login" exact>
+							<LoginPage setAuth={setAuth} />
+						</Route>
+						<Route path="/signup" exact>
+							<SignupPage setAuth={setAuth} />
+						</Route>
+						<Route path="/roadmap" exact>
+							<RoadmapPage />
+						</Route>
+						<Route path="/watch">
+							<WatchPage auth={auth} />
+						</Route>
+					</Switch>
+				</main>
+				<Footer />
+			</div>
 		</Router>
 	);
 }
