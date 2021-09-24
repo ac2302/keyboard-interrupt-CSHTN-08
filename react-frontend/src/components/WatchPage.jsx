@@ -90,6 +90,8 @@ function VideosList({ auth, module, lecture, modules }) {
 											progress.lastLesson >= lessonIndex)
 											? "completed"
 											: ""
+									} ${
+										module == m.index && lecture == lessonIndex ? "current" : ""
 									}`}
 								/>
 							</a>
