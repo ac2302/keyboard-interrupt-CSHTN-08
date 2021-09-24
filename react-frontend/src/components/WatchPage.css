@@ -53,6 +53,32 @@
 	display: block;
 	border: 1px solid black;
 }
+
+.comment-section {
+	display: block;
+	/* max-width: 1400px; */
+	margin-top: 10px;
+	margin-left: 100px;
+	margin-right: 100px;
+}
+.comment-section .new-comment {
+	width: 100%;
+}
+.comment-section .new-comment input {
+	margin-left: 20px;
+	padding: 4px;
+}
+.comment-section .new-comment input {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.comment-section .comment {
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 10px;
+	margin: 10px;
+}
+
 @media only screen and (max-width: 1000px) {
 	.video-container {
 		padding-left: 10px;
@@ -68,7 +94,8 @@
 		padding-left: 0;
 		padding-right: 0;
 	}
-	.videos-list {
+	.videos-list,
+	.comment-section {
 		margin-left: 0;
 		margin-right: 0;
 	}

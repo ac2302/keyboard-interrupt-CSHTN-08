@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import ReactPlayer from "react-player/lazy";
-import { FaPlay } from "react-icons/fa";
+import { FaComment, FaPlay } from "react-icons/fa";
 import { AiOutlineClockCircle } from "react-icons/ai";
 
 import config from "../config";
@@ -75,6 +75,8 @@ function WatchPage({ auth }) {
 						lecture={lecture}
 						modules={modules}
 					/>
+					<hr />
+					<CommentSection auth={auth} module={module} lecture={lecture} />
 				</>
 			)}
 		</div>
@@ -128,6 +130,118 @@ function VideosList({ auth, module, lecture, modules }) {
 	) : (
 		""
 	);
+}
+
+function CommentSection({ auth, module, lecture }) {
+	const [comments, setComments] = useState([]);
+	const [self, setSelf] = useState(false);
+	const [userComment, setUserComment] = useState("");
+
+	useEffect(() => {
+		axios
+			.get(`${config.locations.backend}/comment/${module}/${lecture}`)
+			.then((res) => {
+				console.log(res);
+				setComments(res.data);
+			});
+		axios
+			.get(`${config.locations.backend}/user`, {
+				headers: { "auth-token": auth },
+			})
+			.then((res) => {
+				console.log(res);
+				setSelf(res.data);
+			});
+	}, []);
+
+	const slug = `${module}-${lecture}`;
+	return (
+		<div className="comment-section">
+			<h4>Comments</h4>
+
+			<div className="new-comment">
+				<h5>new comment</h5>
+				<input
+					type="text"
+					className="comment-input"
+					onChange={(e) => {
+						console.log(e.target.value);
+						setUserComment(e.target.value);
+					}}
+					value={userComment}
+				/>
+				<button
+					type="button"
+					className="btn btn-primary"
+					onClick={() => {
+						if (userComment.length > 1)
+							axios
+								.post(
+									`${config.locations.backend}/comment/${module}/${lecture}`,
+									{ comment: userComment },
+									{ headers: { "auth-token": auth } }
+								)
+								.then((res) => {
+									console.log(res.data);
+									setUserComment("");
+								});
+						axios
+							.get(`${config.locations.backend}/comment/${module}/${lecture}`)
+							.then((res) => {
+								console.log(res);
+								setComments(res.data);
+							});
+					}}
+				>
+					<FaComment />
+				</button>
+			</div>
+
+			{comments.map((comment) => (
+				<Comment auth={auth} comment={comment} key={comment._id} />
+				// <h1>lol</h1>
+			))}
+		</div>
+	);
+}
+
+function Comment({ auth, comment }) {
+	return (
+		<div className="comment">
+			<h6>{comment.user.username}</h6>
+			<p>{comment.text}</p>
+			<span className="timestamp">
+				{timeElapsed(Date.parse(comment.createdAt))}
+			</span>
+		</div>
+	);
+}
+
+function timeElapsed(timestamp) {
+	let seconds = (Date.now() - timestamp) / 1000;
+
+	let isDue = seconds < 0;
+	if (isDue) seconds *= -1;
+
+	seconds -= seconds % 1;
+	let minuites = seconds / 60;
+	minuites -= minuites % 1;
+	seconds -= minuites * 60;
+	let hours = minuites / 60;
+	hours -= hours % 1;
+	minuites -= hours * 60;
+	let days = hours / 24;
+	days -= days % 1;
+	hours -= days * 24;
+
+	let prettyCountdown = "";
+	if (days) prettyCountdown += `${days} days, `;
+	if (hours) prettyCountdown += `${hours} hours and `;
+	prettyCountdown += `${minuites} min `;
+	if (isDue) prettyCountdown += "time-travel";
+	else prettyCountdown += "ago";
+
+	return prettyCountdown;
 }
 
 export default WatchPage;
