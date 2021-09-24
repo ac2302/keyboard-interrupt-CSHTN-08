@@ -45,6 +45,26 @@ function WatchPage({ auth }) {
 							controls
 							width="100%"
 							height="100%"
+							onEnded={() => {
+								axios
+									.post(
+										`${config.locations.backend}/complete/lesson`,
+										{ lecture: { module: module, index: lecture } },
+										{
+											headers: { "auth-token": auth },
+										}
+									)
+									.then((res) => {
+										console.log(res);
+										if (lecture + 1 < modules[module].lectures.length) {
+											window.location = `/watch?module=${module}&lesson=${
+												Number(lecture) + 1
+											}`;
+										} else {
+											alert("eom");
+										}
+									});
+							}}
 						/>
 						<h2>{modules[module].lectures[lecture].title}</h2>
 						<p>{modules[module].lectures[lecture].description}</p>
