@@ -7,6 +7,7 @@ import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
 import RoadmapPage from "./components/RoadmapPage";
 import WatchPage from "./components/WatchPage";
+import CertificatePage from "./components/CertificatePage";
 import "./App.css";
 
 function App() {
@@ -46,6 +47,11 @@ function App() {
 						<Route path="/watch">
 							<WatchPage auth={auth} />
 						</Route>
+						{auth && (
+							<Route path="/certificate">
+								<CertificatePage auth={auth} />
+							</Route>
+						)}
 					</Switch>
 				</main>
 				{/* <Footer /> */}

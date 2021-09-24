@@ -71,7 +71,19 @@ function WatchPage({ auth }) {
 											lecture == modules[module].lectures.length - 1
 										) {
 											// alert("end");
-											window.location = "/certificate";
+											axios
+												.post(
+													`${config.locations.backend}/complete/lesson`,
+													{
+														lecture: { module: Number(module) + 1, index: -1 },
+													},
+													{
+														headers: { "auth-token": auth },
+													}
+												)
+												.then((res) => {
+													window.location = "/certificate";
+												});
 										} else {
 											// alert("eom");
 											window.location = `/watch?module=${
