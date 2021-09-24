@@ -10,6 +10,7 @@ import WatchPage from "./components/WatchPage";
 import CertificatePage from "./components/CertificatePage";
 import HomePage from "./components/HomePage";
 import "./App.css";
+import LandingPage from "./components/LandingPage";
 
 function App() {
 	const [auth, setAuth] = useState("");
@@ -34,7 +35,7 @@ function App() {
 				<main>
 					<Switch>
 						<Route path="/" exact>
-							welcome {String(auth)}
+							<LandingPage />
 						</Route>
 						<Route path="/home" exact>
 							<HomePage auth={auth} />
