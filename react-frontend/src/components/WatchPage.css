@@ -75,8 +75,28 @@
 .comment-section .comment {
 	padding: 10px;
 	border: 1px solid black;
-	border-radius: 10px;
+	border-radius: 20px;
+	border-top-left-radius: 0;
 	margin: 10px;
+}
+
+.comment-section input {
+	margin-left: 10px;
+	padding: 4px;
+}
+
+.comment-section .comment .reply {
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 20px;
+	border-top-left-radius: 0;
+
+	margin: 10px;
+}
+
+.comment-section .timestamp {
+	display: block;
+	text-align: end;
 }
 
 @media only screen and (max-width: 1000px) {

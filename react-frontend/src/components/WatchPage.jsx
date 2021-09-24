@@ -184,13 +184,16 @@ function CommentSection({ auth, module, lecture }) {
 								.then((res) => {
 									console.log(res.data);
 									setUserComment("");
+
+									axios
+										.get(
+											`${config.locations.backend}/comment/${module}/${lecture}`
+										)
+										.then((res) => {
+											console.log(res);
+											setComments(res.data);
+										});
 								});
-						axios
-							.get(`${config.locations.backend}/comment/${module}/${lecture}`)
-							.then((res) => {
-								console.log(res);
-								setComments(res.data);
-							});
 					}}
 				>
 					<FaComment />
@@ -198,14 +201,26 @@ function CommentSection({ auth, module, lecture }) {
 			</div>
 
 			{comments.map((comment) => (
-				<Comment auth={auth} comment={comment} key={comment._id} />
-				// <h1>lol</h1>
+				<Comment
+					auth={auth}
+					setComments={setComments}
+					comment={comment}
+					lecture={lecture}
+					module={module}
+					key={comment._id}
+				/>
 			))}
+			<br />
+			<br />
+			<br />
+			<br />
 		</div>
 	);
 }
 
-function Comment({ auth, comment }) {
+function Comment({ auth, comment, lecture, module, setComments }) {
+	const [userReply, setUserReply] = useState("");
+
 	return (
 		<div className="comment">
 			<h6>{comment.user.username}</h6>
@@ -213,6 +228,56 @@ function Comment({ auth, comment }) {
 			<span className="timestamp">
 				{timeElapsed(Date.parse(comment.createdAt))}
 			</span>
+			<input
+				type="text"
+				className="comment-input"
+				onChange={(e) => {
+					console.log(e.target.value);
+					setUserReply(e.target.value);
+				}}
+				value={userReply}
+			/>
+			<button
+				type="button"
+				className="btn btn-primary"
+				onClick={() => {
+					if (userReply.length > 1)
+						axios
+							.post(
+								`${config.locations.backend}/comment/${module}/${lecture}/${comment._id}`,
+								{ comment: userReply },
+								{ headers: { "auth-token": auth } }
+							)
+							.then((res) => {
+								console.log(res.data);
+								setUserReply("");
+
+								axios
+									.get(
+										`${config.locations.backend}/comment/${module}/${lecture}`
+									)
+									.then((res) => {
+										console.log(res);
+										setComments(res.data);
+									});
+							});
+				}}
+			>
+				<FaComment />
+			</button>
+			{comment.replies.length > 0 && (
+				<div className="reply-container">
+					{comment.replies.map((reply) => (
+						<div className="reply">
+							<h6>{reply.user.username}</h6>
+							<p>{reply.text}</p>
+							<span className="timestamp">
+								{timeElapsed(Date.parse(reply.createdAt))}
+							</span>
+						</div>
+					))}
+				</div>
+			)}
 		</div>
 	);
 }
