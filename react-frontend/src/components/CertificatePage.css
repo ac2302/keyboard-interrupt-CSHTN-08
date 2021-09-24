@@ -1,0 +1,37 @@
+@media print {
+	body * {
+		visibility: hidden;
+	}
+	#section-to-print,
+	#section-to-print * {
+		visibility: visible;
+	}
+	#section-to-print {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+}
+
+.certificate {
+	margin: 30px;
+	border: 3px solid black;
+	padding: 30px;
+	max-width: 1000px;
+}
+
+.certificate h1,
+h3 {
+	text-align: center;
+}
+.certificate h4 {
+	text-align: end;
+	padding-right: 30px;
+}
+.certificate p {
+	margin-top: 30px;
+}
+
+.certificate-page button {
+	margin-left: 30px;
+}
