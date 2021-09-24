@@ -9,8 +9,9 @@ import RoadmapPage from "./components/RoadmapPage";
 import WatchPage from "./components/WatchPage";
 import CertificatePage from "./components/CertificatePage";
 import HomePage from "./components/HomePage";
-import "./App.css";
 import LandingPage from "./components/LandingPage";
+import Playground from "./components/Playground";
+import "./App.css";
 
 function App() {
 	const [auth, setAuth] = useState("");
@@ -36,6 +37,9 @@ function App() {
 					<Switch>
 						<Route path="/" exact>
 							<LandingPage />
+						</Route>
+						<Route path="/playground" exact>
+							<Playground />
 						</Route>
 						<Route path="/home" exact>
 							<HomePage auth={auth} />

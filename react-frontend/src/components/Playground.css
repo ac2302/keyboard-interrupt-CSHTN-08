@@ -1,0 +1,16 @@
+.playground {
+	height: 100%;
+}
+#playground-target {
+	border: 1px solid black;
+	height: 50vh;
+    overflow-y: scroll;
+}
+#playground-source {
+    font-size: 20px;
+	border: 1px solid black;
+	display: block;
+	width: 100%;
+	height: calc(50vh - 60px);
+	resize: none;
+}

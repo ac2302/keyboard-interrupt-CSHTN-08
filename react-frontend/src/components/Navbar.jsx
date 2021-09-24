@@ -52,13 +52,17 @@ function Navbar({ auth, setAuth }) {
 								</a>
 								<ul className="dropdown-menu" aria-labelledby="dropdown04">
 									<li>
-										<a className="dropdown-item" href="#">
-											Action
+										<a className="dropdown-item" href="/playground">
+											Playground
 										</a>
 									</li>
 									<li>
-										<a className="dropdown-item" href="#">
-											Another action
+										<a
+											className="dropdown-item"
+											href="https://discord.gg/jZhMFh9g"
+											target="_blank"
+										>
+											Discord
 										</a>
 									</li>
 									<li>
