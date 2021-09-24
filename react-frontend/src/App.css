@@ -4,8 +4,8 @@ body {
 
 main {
 	display: block;
-	max-height: calc(100vh - 112px);
-	min-height: calc(100vh - 112px);
+	max-height: calc(100vh - 60px);
+	min-height: calc(100vh - 60px);
 }
 
 #main-scroller {
