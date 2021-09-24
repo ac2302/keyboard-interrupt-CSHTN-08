@@ -76,14 +76,14 @@ function Navbar({ auth, setAuth }) {
 
 						<LoginButtons auth={auth} setAuth={setAuth} />
 
-						<form>
+						{/* <form>
 							<input
 								className="form-control"
 								type="text"
 								placeholder="Search For Users"
 								aria-label="Search"
 							/>
-						</form>
+						</form> */}
 					</div>
 				</div>
 			</nav>
