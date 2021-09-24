@@ -4,6 +4,14 @@ const authOnly = require("../middlewares/authOnly");
 const authOnlyMiddleware = require("../middlewares/authOnly");
 const User = require("../models/User");
 
+router.get("/", authOnlyMiddleware, async (req, res) => {
+	try {
+		return res.json(await User.findById(req.auth.user));
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
 router.get("/progress/by-id/:id", async (req, res) => {
 	try {
 		const user = await User.findById(req.params.id);
