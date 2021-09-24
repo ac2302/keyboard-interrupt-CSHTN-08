@@ -1,13 +1,29 @@
+.watch-page {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .video-container {
-	display: block;
-	max-width: 1400px;
 	width: 100%;
+	padding-top: 10px;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+.video-container h2,
+.video-container p {
+	padding-left: 20px;
 }
 
 .videos-list {
 	display: block;
-	max-width: 1400px;
+	/* max-width: 1400px; */
 	border: 1px solid black;
+	margin-top: 10px;
+	margin-left: 100px;
+	margin-right: 100px;
 }
 
 .videos-list .completed {
@@ -36,4 +52,24 @@
 .videos-list .module .lesson {
 	display: block;
 	border: 1px solid black;
+}
+@media only screen and (max-width: 1000px) {
+	.video-container {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.videos-list {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.video-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.videos-list {
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
