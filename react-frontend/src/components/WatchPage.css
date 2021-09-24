@@ -1,0 +1,25 @@
+.video-container {
+	display: block;
+	max-width: 1400px;
+	width: 100%;
+}
+
+.videos-list {
+	display: block;
+	max-width: 1400px;
+	border: 1px solid black;
+}
+
+.videos-list .completed {
+	color: black;
+}
+
+.videos-list .module {
+	display: block;
+	border: 1px solid black;
+}
+
+.videos-list .module .lesson {
+	display: block;
+	border: 1px solid black;
+}
