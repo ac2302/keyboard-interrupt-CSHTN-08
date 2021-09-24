@@ -8,6 +8,7 @@ import SignupPage from "./components/SignupPage";
 import RoadmapPage from "./components/RoadmapPage";
 import WatchPage from "./components/WatchPage";
 import CertificatePage from "./components/CertificatePage";
+import HomePage from "./components/HomePage";
 import "./App.css";
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
 					<Switch>
 						<Route path="/" exact>
 							welcome {String(auth)}
+						</Route>
+						<Route path="/home" exact>
+							<HomePage auth={auth} />
 						</Route>
 						<Route path="/login" exact>
 							<LoginPage setAuth={setAuth} />
