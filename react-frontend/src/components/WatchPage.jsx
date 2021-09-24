@@ -35,7 +35,7 @@ function WatchPage({ auth }) {
 	}, [modules]);
 
 	return (
-		<div clasName="watch-page">
+		<div className="watch-page">
 			{videoUrl && (
 				<>
 					<div className="video-container">
