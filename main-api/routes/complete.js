@@ -18,17 +18,9 @@ router.post("/lesson", authOnlyMiddleware, async (req, res) => {
 		return res.status(401).send();
 	}
 
-	if (user.currentModule < module)
-		return res.status(400).send("lecture not unlocked");
-	if (module == user.currentModule && index > user.lastLesson + 1)
-		return res.status(400).send("lecture not unlocked");
-
-	if (module == user.currentModule && index == user.lastLesson + 1) {
-		user.lastLesson++;
-		return res.json(await user.save());
-	}
-
-	res.send("no changes made");
+	user.currentModule = req.body.lecture.module;
+	user.lastLesson = req.body.lecture.index;
+	return res.json(await user.save());
 });
 
 router.post("/quiz/:module", authOnlyMiddleware, async (req, res) => {

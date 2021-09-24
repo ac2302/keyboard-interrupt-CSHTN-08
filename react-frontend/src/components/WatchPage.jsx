@@ -56,12 +56,27 @@ function WatchPage({ auth }) {
 									)
 									.then((res) => {
 										console.log(res);
+										console.log({
+											module,
+											lecture,
+											totalModules: modules.length,
+											totalLectures: modules[module].lectures,
+										});
 										if (lecture + 1 < modules[module].lectures.length) {
 											window.location = `/watch?module=${module}&lesson=${
 												Number(lecture) + 1
 											}`;
+										} else if (
+											module == modules.length - 1 &&
+											lecture == modules[module].lectures.length - 1
+										) {
+											// alert("end");
+											window.location = "/certificate";
 										} else {
-											alert("eom");
+											// alert("eom");
+											window.location = `/watch?module=${
+												Number(module) + 1
+											}&lesson=${0}`;
 										}
 									});
 							}}
