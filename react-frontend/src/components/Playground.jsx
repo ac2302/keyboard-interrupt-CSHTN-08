@@ -11,6 +11,7 @@ function Playground() {
 			<div className="playground">
 				<textarea
 					id="playground-source"
+					spellCheck="false"
 					onChange={(e) => {
 						document.getElementById("playground-target").innerHTML =
 							e.target.value;
