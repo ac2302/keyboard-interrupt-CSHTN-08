@@ -95,6 +95,7 @@ function WatchPage({ auth }) {
 						/>
 						<h2>{modules[module].lectures[lecture].title}</h2>
 						<p>{modules[module].lectures[lecture].description}</p>
+						<a href="#comments">comments</a>
 					</div>
 					<VideosList
 						auth={auth}
@@ -183,7 +184,7 @@ function CommentSection({ auth, module, lecture }) {
 
 	const slug = `${module}-${lecture}`;
 	return (
-		<div className="comment-section">
+		<div className="comment-section" id="comments">
 			<h4>Comments</h4>
 
 			<div className="new-comment">

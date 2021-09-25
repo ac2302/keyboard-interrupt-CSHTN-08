@@ -13,7 +13,9 @@
 }
 
 .video-container h2,
-.video-container p {
+.video-container p,
+.video-container a {
+	display: block;
 	padding-left: 20px;
 }
 
