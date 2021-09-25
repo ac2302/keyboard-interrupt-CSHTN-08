@@ -66,8 +66,12 @@ function Navbar({ auth, setAuth }) {
 										</a>
 									</li>
 									<li>
-										<a className="dropdown-item" href="#">
-											Something else here
+										<a
+											className="dropdown-item"
+											target="_blank"
+											href="https://github.com/ac2302/keyboard-interrupt-CSHTN-08"
+										>
+											GitHub
 										</a>
 									</li>
 								</ul>
